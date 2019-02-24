@@ -5,3 +5,4 @@
 
 #include "VulkanInstance.h"
 #include "VulkanPhisicalDevice.h"
+#include "VulkanDevice.h"

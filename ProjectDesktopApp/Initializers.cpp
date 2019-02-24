@@ -25,3 +25,23 @@ VkInstanceCreateInfo Initializers::instanceCreateInfo(VkApplicationInfo& appInfo
 	info.ppEnabledLayerNames = layers.data();
 	return info;
 }
+
+VkDeviceQueueCreateInfo Initializers::deviceQueueCreate(uint32_t queueFamilyIndex, float& priority)
+{
+	VkDeviceQueueCreateInfo queueCreateInfo{};
+	queueCreateInfo.sType = VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO;
+	queueCreateInfo.queueFamilyIndex = queueFamilyIndex;
+	queueCreateInfo.queueCount = 1;
+	queueCreateInfo.pQueuePriorities = &priority;
+	return queueCreateInfo;
+}
+
+VkDeviceCreateInfo Initializers::deviceCreateInfo(std::vector<VkDeviceQueueCreateInfo>& queueCreateInfo, VkPhysicalDeviceFeatures& deviceFeatures)
+{
+	VkDeviceCreateInfo createInfo{};
+	createInfo.sType = VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO;
+	createInfo.pQueueCreateInfos = queueCreateInfo.data();
+	createInfo.queueCreateInfoCount = (uint32_t)queueCreateInfo.size();
+	createInfo.pEnabledFeatures = &deviceFeatures;
+	return createInfo;
+}
