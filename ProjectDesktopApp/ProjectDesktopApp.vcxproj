@@ -159,12 +159,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BUILD_ORDER.h" />
     <ClInclude Include="Initializers.h" />
+    <ClInclude Include="QueFamilyIndices.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Validation.h" />
     <ClInclude Include="VulkanConfiguration.h" />
     <ClInclude Include="VulkanInstance.h" />
+    <ClInclude Include="VulkanPhisicalDevice.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Initializers.cpp" />
@@ -177,6 +180,7 @@
     </ClCompile>
     <ClCompile Include="Validation.cpp" />
     <ClCompile Include="VulkanInstance.cpp" />
+    <ClCompile Include="VulkanPhisicalDevice.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
