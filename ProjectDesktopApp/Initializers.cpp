@@ -45,3 +45,24 @@ VkDeviceCreateInfo Initializers::deviceCreateInfo(std::vector<VkDeviceQueueCreat
 	createInfo.pEnabledFeatures = &deviceFeatures;
 	return createInfo;
 }
+
+VkCommandPoolCreateInfo Initializers::commandPoolCreateInfo(uint32_t queueFamilyIndex, VkCommandPoolCreateFlags flags)
+{
+	VkCommandPoolCreateInfo poolInfo{};
+	poolInfo.sType = VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO;
+	poolInfo.queueFamilyIndex = queueFamilyIndex;
+	poolInfo.flags = flags;
+
+	return poolInfo;
+
+}
+
+VkCommandBufferAllocateInfo Initializers::commandBufferAllocateInfo(VkCommandPool pool, uint32_t count)
+{
+	VkCommandBufferAllocateInfo allocateInfo{};
+	allocateInfo.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO;
+	allocateInfo.commandPool = pool;
+	allocateInfo.level = VK_COMMAND_BUFFER_LEVEL_PRIMARY;
+	allocateInfo.commandBufferCount = count;
+	return allocateInfo;
+}
