@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "VulkanDevice.h"
+#include "VulkanPhisicalDevice.h"
+#include "Validation.h"
 
 VulkanDevice::VulkanDevice(VulkanInstance * instance, VulkanPhysicalDevice* physicalDevice)
 {
@@ -69,6 +71,11 @@ VkQueue * VulkanDevice::getComputeQueue()
 VkCommandPool & VulkanDevice::getComputeCommandPool()
 {
 	return m_computeCommandPool;
+}
+
+VulkanPhysicalDevice * VulkanDevice::getPhysicalDevice()
+{
+	return m_physicalDevice;
 }
 
 void VulkanDevice::getComputeCommand(VkCommandBuffer * buffers, uint32_t count)

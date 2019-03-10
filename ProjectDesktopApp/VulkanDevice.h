@@ -1,8 +1,7 @@
 #pragma once
 #include "stdafx.h"
-#include "BUILD_ORDER.h";
-
-class VulkanPhysicalDevice;
+#include "VulkanInstance.h"
+#include "VulkanPhisicalDevice.h"
 
 class VulkanDevice
 {
@@ -13,6 +12,7 @@ public:
 	VkDevice* getDevice();
 	VkQueue* getComputeQueue();
 	VkCommandPool& getComputeCommandPool();
+	VulkanPhysicalDevice* getPhysicalDevice();
 	void getComputeCommand(VkCommandBuffer* buffers, uint32_t count);
 	void FreeComputeCommand(VkCommandBuffer* buffers, uint32_t count);
 

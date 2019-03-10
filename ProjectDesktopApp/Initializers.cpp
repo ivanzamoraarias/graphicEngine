@@ -66,3 +66,22 @@ VkCommandBufferAllocateInfo Initializers::commandBufferAllocateInfo(VkCommandPoo
 	allocateInfo.commandBufferCount = count;
 	return allocateInfo;
 }
+
+VkBufferCreateInfo Initializers::bufferCreateInfo(VkDeviceSize size, VkBufferUsageFlags usage)
+{
+	VkBufferCreateInfo info{};
+	info.sType = VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO;
+	info.sharingMode = VK_SHARING_MODE_EXCLUSIVE;
+	info.size = size;
+	info.usage = usage;
+	return info;
+}
+
+VkMemoryAllocateInfo Initializers::memoryAllocateInfo(VkDeviceSize size, uint32_t memoryTypeIndex)
+{
+	VkMemoryAllocateInfo info{};
+	info.sType = VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO;
+	info.allocationSize = size;
+	info.memoryTypeIndex = memoryTypeIndex;
+	return info;
+}

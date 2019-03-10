@@ -4,6 +4,9 @@
 
 VulkanInstance::VulkanInstance(VulkanConfiguration & engineConfiguration)
 {
+	layers.push_back("VK_LAYER_LUNARG_standard_validation");
+	extensions.push_back("VK_EXT_debug_report");
+
 	VkApplicationInfo applicationInfo = Initializers::getApplicationInfo(engineConfiguration);
 	VkInstanceCreateInfo instanceInfo = Initializers::instanceCreateInfo(applicationInfo, layers, extensions);
 	checkError(
